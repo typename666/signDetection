@@ -88,7 +88,11 @@ if __name__ == "__main__":
                 result['frames'].append({'second': second, 'signs': signs})
 
                 if SAVE_FRAMES:
-                    cv2.imwrite(FRAMES_PATH+'\\frame'+str(second)+'.jpg', origFrame) #Сохраняем кадр из видео, на котором есть знаки, отдельно
+                    for sign in signs:
+                        anotatedFrame = cv2.rectangle(origFrame, (sign['x1'], sign['y1']), (sign['x2'], sign['y2']), (0, 0, 0), 2) #Выделяем знак прямоугольником
+                        cv2.putText(anotatedFrame, sign['name'], (sign['x1'], sign['y1']-10), cv2.FONT_HERSHEY_COMPLEX, 0.9, (0, 0, 0), 2) #Пишем название знака
+
+                    cv2.imwrite(FRAMES_PATH+'\\frame'+str(second)+'.jpg', anotatedFrame) #Сохраняем кадр из видео, на котором есть знаки, отдельно
 
         second= second+1
 
