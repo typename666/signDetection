@@ -1,4 +1,4 @@
-# signDetection
+# trafficSignDetection
 Программа распознаёт дорожные знаки на видео и заносит их в файл JSON.
 
 # Требования
