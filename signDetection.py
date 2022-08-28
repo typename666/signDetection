@@ -7,8 +7,8 @@ from models.common import DetectMultiBackend
 from utils.torch_utils import select_device
 from utils.general import non_max_suppression
 
-JSON_OUTPUT_PATH= "signsDetection_result.json"
-FRAMES_PATH= '.\\frames'
+JSON_OUTPUT_PATH= "signsDetection_result.json" #Файл, в который будет сохраняться результат
+FRAMES_PATH= '.\\frames' #Файл, в который будут сохраняться отдельные кадры
 
 if __name__ == "__main__":
     result= {'frames': []} #итоговый словарь со знаками 
