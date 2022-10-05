@@ -155,7 +155,7 @@ if __name__ == "__main__":
     parser.add_argument("--save_frames", default= True, type= bool, help="Если True сохраняет кадры в которых есть знаки в папку frames")
     parser.add_argument("--tracks_path", default= '.\\tracks', type= str, help="Путь к видео со знаками")
     parser.add_argument("--log_path", default= '.\\040220_104824_track.log', type= str, help="Путь к log-файлу")
-    parser.add_argument("--minutes", default= 1, type= int, help="Количество минут, которые необходимо обработать")
+    parser.add_argument("--minutes", default= 0, type= int, help="Количество минут, которые необходимо обработать")
 
     #Вылавливаем аргументы командной строки
     args = parser.parse_args()
