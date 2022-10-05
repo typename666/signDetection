@@ -7,9 +7,9 @@ torch>=1.7.0<br />
 torchvision>=0.8.1
 
 # Запуск
-python signDetection.py --weights .\\weights\\YOLOv5.pt --min_conf 0.7 --im_size 1024 --source input_video.mp4 --data custom_data.yaml --save_frames False
+python signLocalizationFromTwoPoints.py --weights .\\weights\\YOLOv5.pt --min_conf 0.7 --im_size 1024 --source input_video.mp4 --data custom_data.yaml --save_frames False
 
-Введите "python signDetection.py --help" для помощи.
+Введите "python signLocalizationFromTwoPoints.py --help" для помощи.
 
 # Добавление новых знаков
 Для обучения YOLOv5 на новых знаках необходимо запустить скрипт yolov5/train.py, для того чтобы узнать его параметры необходимо ввести "python train.py --help".<br />
