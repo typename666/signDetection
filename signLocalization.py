@@ -82,23 +82,14 @@ class SignsLocalization():
 
         pred= self.findBoxes(frame, self.model)
 
-        origH, origW= frame.shape[:2]
-        if pred.size(0)>0:
-            for box in pred:
-                if box[4].item()> MIN_CONF:
-                    x0, y0, x1, y1= round(box[0].item()), round(box[1].item()), round(box[2].item()), round(box[3].item())
-                    frame = cv2.rectangle(frame, (x0, y0), (x1, y1), (255, 0, 0), 2) #Выделяем знак прямоугольником
-        
-        cv2.imshow('frame', frame)
+        trackRes= self.tracker.addDetections(pred)
 
-        # trackRes= self.tracker.addDetections(pred)
-
-        # for track in trackRes:
-        #     if track[1]>=len(self.signs):
-        #         self.signs.append([track[0], [(track[2], position)], frame])
-        #     else:
-        #         self.signs[track[1]][1].append((track[2], position))
-        #         self.signs[track[1]][2]= frame
+        for track in trackRes:
+            if track[1]>=len(self.signs):
+                self.signs.append([track[0], [(track[2], position)], frame])
+            else:
+                self.signs[track[1]][1].append((track[2], position))
+                self.signs[track[1]][2]= frame
 
     def findSignsPositions(self):
         def linesIntersection(variables, lines):
